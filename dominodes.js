@@ -44,21 +44,29 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	document.addEventListener("DOMContentLoaded", () => {
+	document.callbacks = [];
 
 	const DOMNodeCollection = __webpack_require__(1);
 
-	  Window.prototype.$d = function(arg) {
-	    let selected = [];
+	Window.prototype.$d = function(arg) {
+	  let selected = [];
+	  let callbacks = [];
 
-	    if (arg instanceof HTMLElement){
-	      selected = [arg];
-	    } else if (typeof arg === "string"){
-	      selected = Array.from(document.querySelectorAll(arg));
-	    }
+	  if (arg instanceof HTMLElement) {
+	    selected = [arg];
+	  } else if (typeof arg === "string") {
+	    selected = Array.from(document.querySelectorAll(arg));
+	  } else if (typeof arg === "function") {
+	    document.callbacks.push(arg);
+	  }
 
-	    return new DOMNodeCollection(selected);
-	  };
+	  return new DOMNodeCollection(selected);
+	};
+
+	document.addEventListener("DOMContentLoaded", () => {
+	  document.callbacks.forEach(callback => {
+	    callback();
+	  });
 	});
 
 
@@ -74,8 +82,8 @@
 
 	  html(string) {
 	    if(string !== undefined){
-	      this.elements.forEach((e) => {
-	        e.innerHTML = string;
+	      this.elements.forEach((el) => {
+	        el.innerHTML = string;
 	      });
 	    }else {
 	      return this.elements[0].innerHTML;
@@ -92,8 +100,8 @@
 	    if (value === undefined) {
 	      return this.elements[0].attributes[attributeName].value;
 	    } else {
-	      this.elements.forEach((e) => {
-	        e.attributes[attributeName].value = value;
+	      this.elements.forEach((el) => {
+	        el.attributes[attributeName].value = value;
 	      });
 	    }
 	  }
@@ -117,16 +125,25 @@
 	  }
 
 	  append(content) {
-	    this.elements.forEach((el) => {
-	      el.innerHTML = el.innerHTML + content;
-	    });
+	    if (this.elements.length === 0) return;
+
+	    if (typeof content === 'string') {
+	      this.elements.forEach((el) => {
+	        el.innerHTML = el.innerHTML + content;
+	      });
+	    } else if (typeof content === 'object') {
+	      if (!(content instanceof DOMNodeCollection)) content = $d(content);
+	      this.elements.forEach((el) => {
+	        el.appendChild(content.clonedNode(true));
+	      });
+	    }
 	  }
 
 	  children() {
 	    let childs = [];
 
-	    this.elements.forEach((e) =>{
-	      childs = childs.concat(Array.from(e.children));
+	    this.elements.forEach((el) =>{
+	      childs = childs.concat(Array.from(el.children));
 	    });
 
 	    return new DOMNodeCollection(childs);
@@ -135,8 +152,8 @@
 	  parent() {
 	    let parents = [];
 
-	    this.elements.forEach((e) => {
-	      parents.push(e.parentNode);
+	    this.elements.forEach((el) => {
+	      parents.push(el.parentNode);
 	    });
 
 	    return new DOMNodeCollection(parents);
