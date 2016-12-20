@@ -3,9 +3,19 @@
 DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in JavaScript. It enables users to traverse the DOM, selecting and modifying node elements on the fly. Take a look below for the DOMiNodes API features.
 
 ## Public API
-- [selector()](#$d-selector)
-- [html()](#html(string))
-- [empty()](#empty())
+- [selector()](#d-selector)
+- [html()](#htmlstring)
+- [empty()](#empty)
+- [attr()](#attrattributename-value)
+- [addClass()](#addclassclassname)
+- [removeClass()](#removeclassclassname)
+- [append()](#appendcontent)
+- [children()](#children)
+- [parent()](#parent)
+- [find()](#findselector)
+- [remove()](#remove)
+- [on()](#oneventtype-callback)
+- [off()](#offeventtype)
 
 ### $d (selector)
 ##### Creates and returns a DOMiNodes Object
