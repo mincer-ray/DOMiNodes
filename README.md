@@ -9,7 +9,7 @@ DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in J
 
 Selecting DOM Elements
 ```javascript
-$d("div.class")
+$d("div.class");
 ```
 Wrapping HTML Elements
 ```javascript
@@ -18,7 +18,7 @@ $d(newDiv)
 ```
 Queue callbacks to run when DOM Content has finished loading
 ```javascript
-$d(() => alert("content has loaded!"))
+$d(() => alert("content has loaded!"));
 ```
 ### DOMiNodes Methods
 
@@ -27,14 +27,39 @@ Sets the inner HTML of all selected elements
 ```html
 <p class="paragraph"></p>
 ```
+:arrow_down:
 ```javascript
-$d("p.paragraph").html("hello world")
+$d("p.paragraph").html("hello world");
 ```
+:arrow_down:
 ```html
 <p class="paragraph">hello world</p>
 ```
-
+Returns the inner HTML of the first element in a collection
+```html
+<p class="paragraph">hello world</p>
+```
+:arrow_down:
+```javascript
+$d("p.paragraph").html("hello world");
+```
 #### empty()
+Deletes all child elements of the collection elements
+```html
+<ul class="emptyMe">
+  <li>Hello</li>
+  <li>World</li>
+</ul>
+```
+:arrow_down:
+```javascript
+$d("ul.emptyMe").empty();
+```
+:arrow_down:
+```html
+<ul class="emptyMe">
+</ul>
+```
 
 #### attr(attributeName, value)
 
