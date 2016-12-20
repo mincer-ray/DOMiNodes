@@ -1,4 +1,5 @@
-![logo]()
+![logo](https://raw.githubusercontent.com/mincer-ray/DOMiNodes/master/logo.png)
+
 DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in JavaScript. It features
 
 ## Public API
