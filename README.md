@@ -118,7 +118,7 @@ Appends content to every element of the collection in accordance to type of inpu
 <p></p>
 <p></p>
 ```
-:arrow_down
+:arrow_down:
 ```javascript
 $d("p").append("hello");
 ```
@@ -140,14 +140,65 @@ $d("p").append(document.createElement("div"));
 ```
 #### children()
 Returns a new collection containing the child elements of the elements in the original collection.
-
-
+```html
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+```
+:arrow_down:
+```javascript
+$d("ul").children();
+//<li></li>
+//<li></li>
+```
 #### parent()
-
+```html
+<div>
+  <p></p>
+</div>
+```
+:arrow_down:
+```javascript
+$d("p").parent();
+//<div></div>
+```
 #### find(selector)
-
+Searches all elements in the collection for children that match the input selector.
+```html
+<div>
+  <p class="hello"></p>
+  <section></section>
+  <aside class="side"></aside>
+</div>
+```
+:arrow_down:
+```javascript
+$d("div").find("aside.side");
+//<aside class="side"></aside>
+```
 #### remove()
-
+Removes all elements of the collection from the DOM and empties the collection.
+```html
+<div>
+  <p></p>
+  <section></section>
+</div>
+```
+:arrow_down:
+```javascript
+$d("div").remove();
+```
+:arrow_down:
+```html
+```
 #### on(eventType, callback)
-
+Adds an event listener with the given type and callback to all elements of the collection
+```javascript
+$d("button.hello").on("click", () => alert("hello"));
+```
 #### off(eventType)
+Removes the event listeners for a given type from all elements of the collection
+```javascript
+$d("button.hello").off("click");
+```
