@@ -42,6 +42,7 @@ Returns the inner HTML of the first element in a collection
 :arrow_down:
 ```javascript
 $d("p.paragraph").html("hello world");
+//-> "hello world"
 ```
 #### empty()
 Deletes all child elements of the collection elements
@@ -62,7 +63,24 @@ $d("ul.emptyMe").empty();
 ```
 
 #### attr(attributeName, value)
-
+Gets value of attribute for first Element in colllection OR sets value for attribute of all elements in collection
+```html
+<img src="" alt="hello">
+<img src="" alt="">
+<img src="" alt="">
+```
+:arrow_down:
+```javascript
+$d("img").attr("alt");
+//-> "hello"
+$d("img").attr("alt", "goodbye");
+```
+:arrow_down:
+```html
+<img src="" alt="goodbye">
+<img src="" alt="goodbye">
+<img src="" alt="goodbye">
+```
 #### addClass(className)
 
 #### removeClass(className)
