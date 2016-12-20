@@ -1,5 +1,4 @@
-# DOMiNodes - JavaScript DOM Manipulation Library
-
+![logo]()
 DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in JavaScript. It features
 
 ## Public API
@@ -82,12 +81,65 @@ $d("img").attr("alt", "goodbye");
 <img src="" alt="goodbye">
 ```
 #### addClass(className)
-
+Adds a class name to every element in the collection
+```html
+<div class="hello"></div>
+<div class="hello"></div>
+```
+:arrow_down:
+```javascript
+$d("div.hello").addClass("world");
+```
+:arrow_down:
+```html
+<div class="hello world"></div>
+<div class="hello world"></div>
+```
 #### removeClass(className)
-
+Removes a class name from every element in the collection
+```html
+<div class="hello world"></div>
+<div class="hello world"></div>
+```
+:arrow_down:
+```javascript
+$d("div.hello").removeClass("hello");
+```
+:arrow_down:
+```html
+<div class="world"></div>
+<div class="world"></div>
+```
 #### append(content)
-
+Appends content to every element of the collection in accordance to type of input content given
+```html
+<p></p>
+<p></p>
+<p></p>
+```
+:arrow_down
+```javascript
+$d("p").append("hello");
+```
+:arrow_down:
+```html
+<p>hello</p>
+<p>hello</p>
+<p>hello</p>
+```
+:arrow_down:
+```javascript
+$d("p").append(document.createElement("div"));
+```
+:arrow_down:
+```html
+<p>hello<div></div></p>
+<p>hello<div></div></p>
+<p>hello<div></div></p>
+```
 #### children()
+Returns a new collection containing the child elements of the elements in the original collection.
+
 
 #### parent()
 
