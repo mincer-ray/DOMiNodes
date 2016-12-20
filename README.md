@@ -1,8 +1,8 @@
 ![logo](https://raw.githubusercontent.com/mincer-ray/DOMiNodes/master/logo.png)
 
-DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in JavaScript. It enables users to traverse the DOM, selecting and modifying node elements on the fly. Take a look below for the DOMiNodes API features.
+DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enables users to traverse the DOM, selecting and modifying node elements on the fly. Take a look below for the DOMiNodes API features.
 
-## Public API
+# Public API
 - [selector()](#d-selector)
 - [html()](#htmlstring)
 - [empty()](#empty)
@@ -17,8 +17,8 @@ DOMiNodes is a DOM manipulation library inspired by jQuery written entirely in J
 - [on()](#oneventtype-callback)
 - [off()](#offeventtype)
 
-### $d (selector)
-##### Creates and returns a DOMiNodes Object
+## $d (selector)
+### Creates and returns a DOMiNodes Object
 
 Selecting DOM Elements
 ```javascript
@@ -33,9 +33,9 @@ Queue callbacks to run when DOM Content has finished loading
 ```javascript
 $d(() => alert("content has loaded!"));
 ```
-### DOMiNodes Methods
+## DOMiNodes Methods
 
-#### html(string)
+### html(string)
 Sets the inner HTML of all selected elements
 ```html
 <p class="paragraph"></p>
@@ -57,7 +57,7 @@ Returns the inner HTML of the first element in a collection
 $d("p.paragraph").html("hello world");
 //-> "hello world"
 ```
-#### empty()
+### empty()
 Deletes all child elements of the collection elements
 ```html
 <ul class="emptyMe">
@@ -75,7 +75,7 @@ $d("ul.emptyMe").empty();
 </ul>
 ```
 
-#### attr(attributeName, value)
+### attr(attributeName, value)
 Gets value of attribute for first Element in colllection OR sets value for attribute of all elements in collection
 ```html
 <img src="" alt="hello">
@@ -94,7 +94,7 @@ $d("img").attr("alt", "goodbye");
 <img src="" alt="goodbye">
 <img src="" alt="goodbye">
 ```
-#### addClass(className)
+### addClass(className)
 Adds a class name to every element in the collection
 ```html
 <div class="hello"></div>
@@ -109,7 +109,7 @@ $d("div.hello").addClass("world");
 <div class="hello world"></div>
 <div class="hello world"></div>
 ```
-#### removeClass(className)
+### removeClass(className)
 Removes a class name from every element in the collection
 ```html
 <div class="hello world"></div>
@@ -124,7 +124,7 @@ $d("div.hello").removeClass("hello");
 <div class="world"></div>
 <div class="world"></div>
 ```
-#### append(content)
+### append(content)
 Appends content to every element of the collection in accordance to type of input content given
 ```html
 <p></p>
@@ -151,7 +151,7 @@ $d("p").append(document.createElement("div"));
 <p>hello<div></div></p>
 <p>hello<div></div></p>
 ```
-#### children()
+### children()
 Returns a new collection containing the child elements of the elements in the original collection.
 ```html
 <ul>
@@ -165,7 +165,7 @@ $d("ul").children();
 //<li></li>
 //<li></li>
 ```
-#### parent()
+### parent()
 ```html
 <div>
   <p></p>
@@ -176,7 +176,7 @@ $d("ul").children();
 $d("p").parent();
 //<div></div>
 ```
-#### find(selector)
+### find(selector)
 Searches all elements in the collection for children that match the input selector.
 ```html
 <div>
@@ -190,7 +190,7 @@ Searches all elements in the collection for children that match the input select
 $d("div").find("aside.side");
 //<aside class="side"></aside>
 ```
-#### remove()
+### remove()
 Removes all elements of the collection from the DOM and empties the collection.
 ```html
 <div>
@@ -205,13 +205,17 @@ $d("div").remove();
 :arrow_down:
 ```html
 ```
-#### on(eventType, callback)
+### on(eventType, callback)
 Adds an event listener with the given type and callback to all elements of the collection
 ```javascript
 $d("button.hello").on("click", () => alert("hello"));
 ```
-#### off(eventType)
+### off(eventType)
 Removes the event listeners for a given type from all elements of the collection
 ```javascript
 $d("button.hello").off("click");
 ```
+
+## Todos
+- expand beta AJAX functionality
+- create live demo
