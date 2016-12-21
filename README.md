@@ -2,6 +2,8 @@
 
 DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enables users to traverse the DOM, selecting and modifying node elements on the fly. Take a look below for the DOMiNodes API features.
 
+| [Public API](#public-api) | [Todos](#todos) |
+
 # Public API
 - [selector()](#d-selector)
 - [html()](#htmlstring)
@@ -216,6 +218,6 @@ Removes the event listeners for a given type from all elements of the collection
 $d("button.hello").off("click");
 ```
 
-## Todos
+# Todos
 - expand beta AJAX functionality
 - create live demo
