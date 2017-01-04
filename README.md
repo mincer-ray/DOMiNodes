@@ -1,5 +1,4 @@
-[live]: http://www.peterdegenaro.com/YAROOA
-
+[live]: https://www.peterdegenaro.com/DOMiNodes/
 
 ![logo](https://raw.githubusercontent.com/mincer-ray/DOMiNodes/master/logo.png)
 
@@ -23,7 +22,7 @@ DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enabl
 - [remove()](#remove)
 - [on()](#oneventtype-callback)
 - [off()](#offeventtype)
-- [ajax()](#ajax)
+- [ajax()](#ajaxoptions)
 
 ## $d (selector)
 ### Creates and returns a DOMiNodes Object
@@ -223,7 +222,7 @@ Removes the event listeners for a given type from all elements of the collection
 ```javascript
 $d("button.hello").off("click");
 ```
-### ajax(ajax)
+### ajax({options})
 Used to make an ajax request to an external source. Example:
 ```javascript
 $d.ajax({
