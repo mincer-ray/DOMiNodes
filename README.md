@@ -1,6 +1,11 @@
+[live]: http://www.peterdegenaro.com/YAROOA
+
+
 ![logo](https://raw.githubusercontent.com/mincer-ray/DOMiNodes/master/logo.png)
 
 DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enables users to traverse the DOM, selecting and modifying node elements on the fly. Take a look below for the DOMiNodes API features.
+
+[Towers of Hanoi Live Demo][live]
 
 | [Public API](#public-api) | [Todos](#todos) |
 
@@ -18,6 +23,7 @@ DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enabl
 - [remove()](#remove)
 - [on()](#oneventtype-callback)
 - [off()](#offeventtype)
+- [ajax()](#ajax)
 
 ## $d (selector)
 ### Creates and returns a DOMiNodes Object
@@ -217,7 +223,17 @@ Removes the event listeners for a given type from all elements of the collection
 ```javascript
 $d("button.hello").off("click");
 ```
+### ajax(ajax)
+Used to make an ajax request to an external source. Example:
+```javascript
+$d.ajax({
+  url: "http://www.coolapi.com/posts",
+  method: "GET",
+  success: () => alert("success!"),
+  error: () => alert("oh no!"),
+  data: { code: 1234 }
+})
+```
 
 # Todos
-- expand beta AJAX functionality
-- create live demo
+- Improve live demo by adding more feature to demonstrate DOMiNodes
