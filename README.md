@@ -1,4 +1,4 @@
-[live]: https://www.peterdegenaro.com/DOMiNodes/
+[live]: http://www.peterdegenaro.com/DOMiNodes/
 
 ![logo](https://raw.githubusercontent.com/mincer-ray/DOMiNodes/master/logo.png)
 
