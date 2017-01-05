@@ -6,8 +6,6 @@ DOMiNodes is a DOM manipulation library written entirely in JavaScript. It enabl
 
 [Towers of Hanoi Live Demo][live]
 
-| [Public API](#public-api) | [Todos](#todos) |
-
 # Public API
 - [selector()](#d-selector)
 - [html()](#htmlstring)
@@ -233,6 +231,3 @@ $d.ajax({
   data: { code: 1234 }
 })
 ```
-
-# Todos
-- Improve live demo by adding more feature to demonstrate DOMiNodes
