@@ -87,7 +87,7 @@ class View {
   }
 
   getWeather() {
-    let url = 'https://api.openweathermap.org/data/2.5/weather?';
+    let url = 'http://api.openweathermap.org/data/2.5/weather?';
     url += `lat=40&lon=-74`;
     url += `&APPID=f816d7f39052e3a98b21952097a43076`;
     $d.ajax({url, success: this.postWeather.bind(this)});
