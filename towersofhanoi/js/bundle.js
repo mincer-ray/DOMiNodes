@@ -144,7 +144,7 @@
 	    this.render();
 	    this.bindEvents();
 	    this.encouragement();
-	    navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
+	    // navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
 	    this.encourageID = window.setInterval(this.encouragement, 5000);
 	  }
 
@@ -221,8 +221,8 @@
 	  }
 
 	  getWeather(location) {
-	    let url = 'http://api.openweathermap.org/data/2.5/weather?';
-	    url += `lat=${location.coords.latitude}&lon=${location.coords.longitude}`;
+	    let url = 'https://api.openweathermap.org/data/2.5/weather?';
+	    url += `lat=40&lon=-74`;
 	    url += `&APPID=f816d7f39052e3a98b21952097a43076`;
 	    $d.ajax({url, success: this.postWeather.bind(this)});
 	  }
@@ -231,7 +231,7 @@
 	    weather = JSON.parse(weather);
 	    let temp = Math.floor((weather.main.temp - 273.15) * 1.8 + 32);
 	    let location = weather.name;
-	    $d('.weather').append(`The temperature is ${temp} degrees`);
+	    $d('.weather').append(`The temperature in NYC is ${temp} degrees`);
 	  }
 	}
 
