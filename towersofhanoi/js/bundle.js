@@ -144,7 +144,7 @@
 	    this.render();
 	    this.bindEvents();
 	    this.encouragement();
-	    this.getWeather.bind(this);
+	    this.getWeather();
 	    this.encourageID = window.setInterval(this.encouragement, 5000);
 	  }
 
