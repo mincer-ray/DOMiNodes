@@ -10,7 +10,7 @@ class View {
     this.render();
     this.bindEvents();
     this.encouragement();
-    // navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
+    this.getWeather.bind(this);
     this.encourageID = window.setInterval(this.encouragement, 5000);
   }
 
@@ -86,7 +86,7 @@ class View {
     $d('.console').append(niceWords[Math.floor(Math.random() * niceWords.length)]);
   }
 
-  getWeather(location) {
+  getWeather() {
     let url = 'https://api.openweathermap.org/data/2.5/weather?';
     url += `lat=40&lon=-74`;
     url += `&APPID=f816d7f39052e3a98b21952097a43076`;
